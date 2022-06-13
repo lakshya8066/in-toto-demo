@@ -6,7 +6,8 @@ pipeline{
                        in_toto_wrap(['stepName': 'Build', 
                  'credentialId': 'keyId01', 
                     'transport': 'redis://redis']){ 
-         echo 'Building..' 
+                     echo 'Building..' 
+                     }
             }
         }
     }
