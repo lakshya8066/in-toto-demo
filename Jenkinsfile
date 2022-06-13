@@ -24,7 +24,7 @@
                 &apos;keyPath&apos;: &apos;/keys/bob&apos;,
                 &apos;transport&apos;: &apos;grafeas+https://grafeas.nyu.wtf/v1beta1/projects/in-toto-grafeas-jenkins/occurrences?noteName=projects/in-toto-grafeas/notes/clone&amp;resourceUri=uri1&apos;]){
                     //sh label: &apos;download-source&apos;, script: &apos;git clone https://github.com/in-toto/demo-project&apos;
-                    git &apos;https://github.com/in-toto/demo-project&apos;
+                    git &apos;https://github.com/lakshya8066/in-toto-demo.git;
                 }
 
                 // Create package

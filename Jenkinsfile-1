@@ -8,6 +8,17 @@ pipeline{
                 "keyPath": "/keys/bob",
                 "transport": "/"
             ])
+            {
+                git "https://github.com/lakshya8066/in-toto-demo.git"
+            }
+            in_toto_wrap([
+                "stepName": "Package",
+                "keyPath": "/keys/carl",
+                "transport": "/"
+            ])
+            {
+                sh label: "compress-for-release", script: "tar --exclude .git -zcvf demo-project.tar.gz ."
+            }
         }
        } 
     }
