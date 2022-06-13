@@ -1,8 +1,10 @@
 pipeline{
-  agent any
-  stages{
-    stage("test python"){
-      sh "mvn --version"
+    agent any
+    stages{
+        stage("Build"){
+            steps{
+                echo "Building the app"
+            }
+        }
     }
-  }
 }
