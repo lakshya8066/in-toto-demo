@@ -2,9 +2,7 @@ pipeline{
     agent any
     stages{
         stage("Build"){
-            in_toto_wrap(['stepName': 'Build', 
-                 'credentialId': 'keyId01', 
-                    'transport': 'redis://redis'])
+            echo "building..."
         }
     }
 }
