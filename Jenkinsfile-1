@@ -9,7 +9,7 @@ pipeline{
                 "transport": "/"
             ])
             {
-                git credentialsId: 'github', url: "https://github.com/lakshya8066/in-toto-demo.git"
+                git credentialsId: 'github', url: "https://github.com/lakshya8066/in-toto-demo"
             }
             in_toto_wrap([
                 "stepName": "Package",
