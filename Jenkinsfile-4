@@ -3,8 +3,8 @@ pipeline{
     stages{
         stage("Build"){
             in_toto_wrap(['stepName': 'Build', 
-                 'credentialId': '/keys/bob', 
-                    'transport': '/'])
+                 'credentialId': 'keyId01', 
+                    'transport': 'redis://redis'])
         }
     }
 }
