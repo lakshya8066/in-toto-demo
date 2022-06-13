@@ -3,7 +3,9 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                sh "python3 -m venv in-toto-demo" "python3 --version"
+                sh "pwd"
+                sh "cd demo"
+                sh "pwd"
             }
         }
     }
