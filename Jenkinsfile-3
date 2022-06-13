@@ -19,19 +19,11 @@
         stage("Beta") {
             //agent { label "worker 1" }
             steps {
-                // Clone package
-                in_toto_wrap(["stepName": "Clone",
-                "keyPath": "/keys/bob",
-                "transport": "/"]){
-                    echo "building..."
-                  }
-
-                // Create package
-                in_toto_wrap(["stepName": "Package",
-                "keyPath": "/keys/carl",
-                "transport": "/"]){
-                    sh label: "compress-for-release", script: "tar --exclude .git -zcvf demo-project.tar.gz ."
-                }
+                in_toto_wrap(['stepName': 'Build', 
+                 'credentialId': 'keyId01', 
+                    'transport': 'redis://redis']){ 
+         echo 'Building..' 
+       } 
             }
         }
     }
