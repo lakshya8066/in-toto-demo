@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                sh "pip install -r requirements.txt && cd owner_alice && python3 create_layout.py && cd ../functionary_bob && in-toto-run --step-name clone --products demo-project/foo.py --key bob -- git clone https://github.com/in-toto/demo-project.git"
+                sh "pip install -r requirements.txt && cd owner_alice && python3 create_layout.py && cd ../functionary_bob && in-toto-run --step-name clone --products demo-project/foo.py --key bob -- git clone https://github.com/in-toto/demo-project.git && ls"
             }
         }
     }
