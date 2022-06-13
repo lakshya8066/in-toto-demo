@@ -22,10 +22,7 @@
                 // Clone package
                 in_toto_wrap(["stepName": "Clone",
                 "keyPath": "/keys/bob",
-                "transport": "/"]){
-                    //sh label: "download-source", script: "git clone https://github.com/in-toto/demo-project"
-                    git "https://github.com/lakshya8066/in-toto-demo.git"
-                }
+                "transport": "/"])
 
                 // Create package
                 in_toto_wrap(["stepName": "Package",
