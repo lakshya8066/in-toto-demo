@@ -3,7 +3,9 @@ pipeline{
     stages{
         stage("Build"){
             steps{
-                echo "building..."
+                in_toto_wrap(['stepName': 'Build', 
+                 'credentialId': '/keys/bob', 
+                    'transport': '/'])
             }
         }
     }
