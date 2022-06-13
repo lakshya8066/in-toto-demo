@@ -5,9 +5,6 @@ pipeline{
             in_toto_wrap(['stepName': 'Build', 
                  'credentialId': '/keys/bob', 
                     'transport': '/'])
-            { 
-                echo 'Building..' 
-            }
         }
     }
 }
