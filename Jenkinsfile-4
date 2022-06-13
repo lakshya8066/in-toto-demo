@@ -4,7 +4,7 @@ pipeline{
         stage("Build"){
             steps{
                 sh "pwd"
-                sh "cd demo"
+                sh "cd functionary_bob"
                 sh "pwd"
             }
         }
