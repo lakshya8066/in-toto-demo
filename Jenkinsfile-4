@@ -1,0 +1,46 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.36">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.5.1"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.5.1">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.78">
+    <script>pipeline {
+    agent any
+    stages {
+        stage("Beta") {
+            //agent { label "worker 1" }
+            steps {
+                // Clone package
+                in_toto_wrap(["stepName": "Clone",
+                "keyPath": "/keys/bob",
+                "transport": "/"]){
+                    //sh label: "download-source", script: "git clone https://github.com/in-toto/demo-project"
+                    git "https://github.com/in-toto/demo-project"
+                }
+
+                // Create package
+                in_toto_wrap(["stepName": "Package",
+                "keyPath": "/keys/carl",
+                "transport": "/"]){
+                    sh label: "compress-for-release", script: "tar --exclude .git -zcvf demo-project.tar.gz ."
+                }
+            }
+        }
+    }
+}
+</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>
+
