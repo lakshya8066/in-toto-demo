@@ -22,7 +22,9 @@
                 // Clone package
                 in_toto_wrap(["stepName": "Clone",
                 "keyPath": "/keys/bob",
-                "transport": "/"])
+                "transport": "/"]){
+                    echo "building..."
+                  }
 
                 // Create package
                 in_toto_wrap(["stepName": "Package",
