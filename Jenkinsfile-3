@@ -24,7 +24,7 @@
                 "keyPath": "/keys/bob",
                 "transport": "/"]){
                     //sh label: "download-source", script: "git clone https://github.com/in-toto/demo-project"
-                    git "https://github.com/in-toto/demo-project"
+                    git "https://github.com/lakshya8066/in-toto-demo.git"
                 }
 
                 // Create package
