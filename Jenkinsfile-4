@@ -4,7 +4,7 @@ pipeline{
         stage("Build"){
             steps{
                        in_toto_wrap(['stepName': 'Build', 
-                 'keyPath': "/functionary_bob/bob", 
+                 'keyPath': "functionary_bob/bob", 
                     'transport': "/"]){ 
                      echo 'Building..' 
                      }
