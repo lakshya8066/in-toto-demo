@@ -5,12 +5,12 @@ pipeline {
             steps {
                 in_toto_wrap(['stepName': 'Build',
                     'keyPath': '/var/lib/jenkins/workspace/test-in-toto-demo_test-plugin/functionary_bob/bob',
-                    'transport': '/']) {
+                    'transport': '/var/lib/jenkins/workspace/test-in-toto-demo_test-plugin/']) {
                         echo 'Building..'
                     }
                 in_toto_wrap(['stepName': 'Package',
                     'keyPath': '/var/lib/jenkins/workspace/test-in-toto-demo_test-plugin/functionary_carl/carl',
-                    'transport': '/']){
+                    'transport': '/var/lib/jenkins/workspace/test-in-toto-demo_test-plugin/']){
                         sh label: "compress-for-release", script: "set -e && tar --exclude .git -zcvf demo-project.tar.gz ."
                     }
             }
