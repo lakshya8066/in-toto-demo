@@ -8,11 +8,11 @@ pipeline {
                     'transport': '']) {
                         echo 'Building..'
                     }
-//                 in_toto_wrap(['stepName': 'Package',
-//                     'keyPath': '/var/lib/jenkins/workspace/test-in-toto-demo_test-plugin/functionary_carl/carl',
-//                     'transport': '/var/lib/jenkins/workspace/test-in-toto-demo_test-plugin/']){
-//                         sh label: "compress-for-release", script: "set -e && tar --exclude .git -zcvf demo-project.tar.gz ."
-//                     }
+                in_toto_wrap(['stepName': 'Package',
+                    'keyPath': '/var/lib/jenkins/workspace/test-in-toto-demo_test-plugin/functionary_carl/carl',
+                    'transport': '']){
+                        sh label: "compress-for-release", script: "set -e && tar --exclude .git -zcvf demo-project.tar.gz ."
+                    }
             }
         }
     }
