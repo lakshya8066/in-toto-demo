@@ -5,7 +5,7 @@ pipeline {
             steps {
                 in_toto_wrap(['stepName': 'Build',
                     'keyPath': '/var/lib/jenkins/workspace/final-test_test-plugin/functionary_bob/bob',
-                    'transport': '/']) {
+                    'transport': '/var/lib/jenkins/workspace/final-test_test-plugin/']) {
                         echo 'Building..'
                     }
 //                 in_toto_wrap(['stepName': 'Package',
