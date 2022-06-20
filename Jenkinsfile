@@ -4,12 +4,12 @@ pipeline {
         stage('Build') {
             steps {
                 in_toto_wrap(['stepName': 'Build',
-                    'keyPath': '/functionary_bob/bob',
+                    'keyPath': '/var/lib/jenkins/workspace/final-test_test-plugin/functionary_bob/bob',
                     'transport': '']) {
                         echo 'Building..'
                     }
                 in_toto_wrap(['stepName': 'Package',
-                    'keyPath': '/functionary_carl/carl',
+                    'keyPath': '/var/lib/jenkins/workspace/final-test_test-plugin/functionary_carl/carl',
                     'transport': '']){
                         sh label: "compress-for-release", script: "set -e && tar --exclude .git -zcvf demo-project.tar.gz ."
                     }
