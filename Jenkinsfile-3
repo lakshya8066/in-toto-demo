@@ -1,36 +1,24 @@
-<?xml version='1.1' encoding='UTF-8'?>
-<flow-definition plugin="workflow-job@2.36">
-  <actions>
-    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.5.1"/>
-    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.5.1">
-      <jobProperties/>
-      <triggers/>
-      <parameters/>
-      <options/>
-    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
-  </actions>
-  <description></description>
-  <keepDependencies>false</keepDependencies>
-  <properties/>
-  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.78">
-    pipeline {
+
+
+pipeline {
     agent any
     stages {
-        stage("Beta") {
-            //agent { label "worker 1" }
+        stage('Build') {
             steps {
-                in_toto_wrap(['stepName': 'Build', 
-                 'credentialId': '/keys/bob', 
-                    'transport': '/']){ 
-         echo 'Building..' 
-       } 
+                in_toto_wrap(['stepName': 'Build',
+                    'keyPath': '/var/lib/jenkins/workspace/final-test_test-plugin/functionary_bob/bob',
+                    'transport': '']) {
+                        sh label: "download-source",
+                        script: "git clone https://github.com/lakshya8066/in-toto-demo.git",
+                        echo 'Building..'
+                    }
+                in_toto_wrap(['stepName': 'Package',
+                    'keyPath': '/var/lib/jenkins/workspace/final-test_test-plugin/functionary_carl/carl',
+                    'transport': '']){
+                        sh label: "compress-for-release", 
+                        script: "tar --exclude .git -zcvf demo-project.tar.gz ."
+                    }
             }
         }
     }
 }
-    <sandbox>true</sandbox>
-  </definition>
-  <triggers/>
-  <disabled>false</disabled>
-</flow-definition>
-
