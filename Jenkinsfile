@@ -11,7 +11,7 @@ pipeline {
                 in_toto_wrap(['stepName': 'Package',
                     'keyPath': '/var/lib/jenkins/workspace/Test/functionary_carl/carl',
                     'transport': '']){
-                        sh label: "compress-for-release", script: "tar --exclude .git -zcvf demo-project.tar.gz ."
+                        sh label: "compress-for-release", script: "tar --exclude .git -zcvf demo-project.tar.gz . && set +e"
                     }
             }
         }
