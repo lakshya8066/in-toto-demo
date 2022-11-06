@@ -6,7 +6,7 @@ pipeline {
                 in_toto_wrap(['stepName': 'Build',
                     'keyPath': '/var/jenkins_home/workspace/test/functionary_bob/bob',
                     'transport': '',
-                    'excludeEnv':'sadfa']) {
+                    'excludeEnv':["sadfa","dvas","sdfsc","dscvadsg"]]) {
                         echo 'Building..'
                     }
                 in_toto_wrap(['stepName': 'Package',
