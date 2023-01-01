@@ -7,7 +7,7 @@ pipeline {
                     'keyPath': '/var/lib/jenkins/workspace/test-wrapper/functionary_bob/bob',
                     'transport': '']) {
                         echo 'Building..'
-                        script: "set +e"
+                        sh script: "set +e"
                     }
                 in_toto_wrap(['stepName': 'Package',
                     'keyPath': '/var/lib/jenkins/workspace/test-wrapper/functionary_carl/carl',
